@@ -6,46 +6,79 @@ set -e
 
 # Apps
 apps=(
+  # Utilities
   alfred
-  dropbox
-  google-chrome
-  qlcolorcode
-  screenflick
-  slack
-  transmit
   appcleaner
-  firefox
-  hazel
-  qlmarkdown
-  seil
-  spotify
-  vagrant
-  arq
-  flash
   iterm2
-  qlprettypatch
-  shiori
-  sublime-text3
-  virtualbox
-  atom
-  flux
-  mailbox
-  qlstephen
-  sketch
-  tower
-  vlc
-  cloudup
-  font-m-plus
-  nvalt
-  quicklook-json
+  # seil
+  caffeine
+  divvy
+  growler
+  pins
+  # Browsers
+  firefox
+  google-chrome
+  aviator
+  # Communication
+  # slack
+  # mailbox
+  # thunderbird
   skype
+  # Media
+  vlc
+  # spotify
+  # Storage & Management
+  dropbox
+  hazel
+  cloudup
   transmission
+  transporter-desktop
+  # transmit  
+  # arq
+  carbon-copy-cloner
+  crashplan
+  daisydisk
+  gemini
+  # Quicklook
+  qlcolorcode
+  qlmarkdown
+  # qlprettypatch
+  qlstephen
+  quicklook-json
+  # Text editors
+  sublime-text
+  # sublime-text3
+  # atom
+  nvalt
+  textmate
+  coda
+  # Design
+  balsamiq-mockups
+  # sketch
+  # Other Developer Tools
+  virtualbox
+  tower
   apikitchen
+  codekit
+  sketchup
+  # screenflick
+  # vagrant
+  # Just Plain Other
+  ynab
+  libreoffice
+  # flash
+  # shiori
+  # flux
+  # font-m-plus
+  # Other not yet in cask
+  # 1password
+  # folders-factory
+  # hardware-growler
 )
 
 # fonts
 fonts=(
-  font-m-plus
+  # font-m-plus
   font-clear-sans
   font-roboto
 )
