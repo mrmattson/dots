@@ -17,7 +17,7 @@ echo "This script will make your Mac awesome"
 ###############################################################################
 
 echo ""
-echo "Hide the Time Machine, Volume, User, and Bluetooth icons"
+echo "Hide the Time Machine, Volume, and User icons"
 for domain in ~/Library/Preferences/ByHost/com.apple.systemuiserver.*; do
   defaults write "${domain}" dontAutoLoad -array \
     "/System/Library/CoreServices/Menu Extras/TimeMachine.menu" \
@@ -32,12 +32,12 @@ defaults write com.apple.systemuiserver menuExtras -array \
 
 sudo chmod 600 /System/Library/CoreServices/Search.bundle/Contents/MacOS/Search
 
-echo ""
-echo "Disabling OS X Gate Keeper"
-echo "(You'll be able to install any app you want from here on, not just Mac App Store apps)"
-sudo spctl --master-disable
-sudo defaults write /var/db/SystemPolicy-prefs.plist enabled -string no
-defaults write com.apple.LaunchServices LSQuarantine -bool false
+# echo ""
+# echo "Disabling OS X Gate Keeper"
+# echo "(You'll be able to install any app you want from here on, not just Mac App Store apps)"
+# sudo spctl --master-disable
+# sudo defaults write /var/db/SystemPolicy-prefs.plist enabled -string no
+# defaults write com.apple.LaunchServices LSQuarantine -bool false
 
 echo ""
 echo "Increasing the window resize speed for Cocoa applications"
@@ -62,9 +62,9 @@ echo ""
 echo "Disabling system-wide resume"
 defaults write NSGlobalDomain NSQuitAlwaysKeepsWindows -bool false
 
-echo ""
-echo "Disabling automatic termination of inactive apps"
-defaults write NSGlobalDomain NSDisableAutomaticTermination -bool true
+# echo ""
+# echo "Disabling automatic termination of inactive apps"
+# defaults write NSGlobalDomain NSDisableAutomaticTermination -bool true
 
 echo ""
 echo "Saving to disk (not to iCloud) by default"
@@ -74,9 +74,9 @@ echo ""
 echo "Reveal IP address, hostname, OS version, etc. when clicking the clock in the login window"
 sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo HostName
 
-echo ""
-echo "Never go into computer sleep mode"
-systemsetup -setcomputersleep Off > /dev/null
+# echo ""
+# echo "Never go into computer sleep mode"
+# systemsetup -setcomputersleep Off > /dev/null
 
 echo ""
 echo "Check for software updates daily, not just once per week"
@@ -86,6 +86,10 @@ echo ""
 echo "Disable smart quotes and smart dashes as theyâ€™re annoying when typing code"
 defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
 defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
+
+echo ""
+echo "Restart automatically if the computer freezes"
+sudo systemsetup -setrestartfreeze on
 
 
 ###############################################################################
@@ -108,9 +112,9 @@ echo ""
 echo "Setting a blazingly fast keyboard repeat rate (ain't nobody got time fo special chars while coding!)"
 defaults write NSGlobalDomain KeyRepeat -int 0
 
-echo ""
-echo "Disabling auto-correct"
-defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
+# echo ""
+# echo "Disabling auto-correct"
+# defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 
 echo ""
 echo "Setting trackpad & mouse speed to a reasonable number"
@@ -120,6 +124,12 @@ defaults write -g com.apple.mouse.scaling 2.5
 echo ""
 echo "Turn off keyboard illumination when computer is not used for 5 minutes"
 defaults write com.apple.BezelServices kDimTime -int 300
+
+echo ""
+echo "Trackpad: enable tap to click for this user and for the login screen"
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
+defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 
 ###############################################################################
 # Screen
@@ -166,9 +176,9 @@ echo ""
 echo "Disabling the warning when changing a file extension"
 defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 
-echo ""
-echo "Use column view in all Finder windows by default"
-defaults write com.apple.finder FXPreferredViewStyle Clmv
+# echo ""
+# echo "Use column view in all Finder windows by default"
+# defaults write com.apple.finder FXPreferredViewStyle Clmv
 
 echo ""
 echo "Avoiding the creation of .DS_Store files on network volumes"
@@ -186,9 +196,46 @@ echo "Enabling snap-to-grid for icons on the desktop and in other icon views"
 /usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
 /usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
 
+# echo ""
+# echo "Show hidden files by default"
+# defaults write com.apple.finder AppleShowAllFiles -bool true
+
+echo ""
+echo "When performing a search, search the current folder by default"
+defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
+
+echo ""
+echo "Automatically open a new Finder window when a volume is mounted"
+defaults write com.apple.frameworks.diskimages auto-open-ro-root -bool true
+defaults write com.apple.frameworks.diskimages auto-open-rw-root -bool true
+defaults write com.apple.finder OpenWindowForNewRemovableDisk -bool 
+
+echo ""
+echo "Increase grid spacing for icons on the desktop and in other icon views"
+/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:gridSpacing 100" ~/Library/Preferences/com.apple.finder.plist
+/usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:gridSpacing 100" ~/Library/Preferences/com.apple.finder.plist
+/usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:gridSpacing 100" ~/Library/Preferences/com.apple.finder.plist
+
+echo ""
+echo "Increase the size of icons on the desktop and in other icon views"
+/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:iconSize 80" ~/Library/Preferences/com.apple.finder.plist
+/usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:iconSize 80" ~/Library/Preferences/com.apple.finder.plist
+/usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:iconSize 80" ~/Library/Preferences/com.apple.finder.plist
+
+echo ""
+echo "Enable AirDrop over Ethernet and on unsupported Macs running Lion"
+defaults write com.apple.NetworkBrowser BrowseAllInterfaces -bool true
+
+echo ""
+echo "Expand the following File Info panes:"
+echo '"General", "Open with", and "Sharing & Permissions"'
+defaults write com.apple.finder FXInfoPanesExpanded -dict \
+General -bool true \
+OpenWith -bool true \
+Privileges -bool true
 
 ###############################################################################
-# Dock & Mission Control
+# Dock, Mission Control & Hot Corners
 ###############################################################################
 
 # Wipe all (default) app icons from the Dock
@@ -206,11 +253,40 @@ defaults write com.apple.dock expose-animation-duration -float 0.1
 defaults write com.apple.dock "expose-group-by-app" -bool true
 
 echo ""
-echo "Setting Dock to auto-hide and removing the auto-hiding delay"
-defaults write com.apple.dock autohide -bool true
-defaults write com.apple.dock autohide-delay -float 0
-defaults write com.apple.dock autohide-time-modifier -float 0
+echo "Minimize windows into their application’s icon"
+defaults write com.apple.dock minimize-to-application -bool true
 
+# echo ""
+# echo "Setting Dock to auto-hide and removing the auto-hiding delay"
+# defaults write com.apple.dock autohide -bool true
+# defaults write com.apple.dock autohide-delay -float 0
+# defaults write com.apple.dock autohide-time-modifier -float 0
+
+echo ""
+echo "Hot corners"
+# Possible values:
+# 0: no-op
+# 2: Mission Control
+# 3: Show application windows
+# 4: Desktop
+# 5: Start screen saver
+# 6: Disable screen saver
+# 7: Dashboard
+# 10: Put display to sleep
+# 11: Launchpad
+# 12: Notification Center
+echo "Top left screen corner → Nothing"
+defaults write com.apple.dock wvous-tl-corner -int -0
+defaults write com.apple.dock wvous-tl-modifier -int 0
+echo "Top right screen corner → Mission Control"
+defaults write com.apple.dock wvous-tr-corner -int 2
+defaults write com.apple.dock wvous-tr-modifier -int 0
+echo "Bottom left screen corner → Launchpad"
+defaults write com.apple.dock wvous-bl-corner -int 11
+defaults write com.apple.dock wvous-bl-modifier -int 0
+echo "Bottom right screen corner → Show application windows"
+defaults write com.apple.dock wvous-bl-corner -int 3
+defaults write com.apple.dock wvous-bl-modifier -int 0
 
 ###############################################################################
 # Safari & WebKit
@@ -241,8 +317,12 @@ echo "Removing useless icons from Safariâ€™s bookmarks bar"
 defaults write com.apple.Safari ProxiesInBookmarksBar "()"
 
 echo ""
-echo "Allow hitting the Backspace key to go to the previous page in history"
-defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2BackspaceKeyNavigationEnabled -bool true
+echo "Prevent Safari from opening ‘safe’ files automatically after downloading"
+defaults write com.apple.Safari AutoOpenSafeDownloads -bool false
+
+echo ""
+echo "Avoid hitting the Backspace key to go to the previous page in history"
+defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2BackspaceKeyNavigationEnabled -bool false
 
 echo ""
 echo "Enabling the Develop menu and the Web Inspector in Safari"
@@ -269,10 +349,13 @@ defaults write com.apple.mail AddressesIncludeNameOnPasteboard -bool false
 ###############################################################################
 
 echo ""
-echo "Enabling UTF-8 ONLY in Terminal.app and setting the Pro theme by default"
+echo "Enabling UTF-8 ONLY in Terminal.app"
 defaults write com.apple.terminal StringEncodings -array 4
-defaults write com.apple.Terminal "Default Window Settings" -string "Pro"
-defaults write com.apple.Terminal "Startup Window Settings" -string "Pro"
+
+echo ""
+echo "Set the Pro theme by default in Terminal.app"
+defaults write com.apple.terminal "Default Window Settings" -string "Pro"
+defaults write com.apple.terminal "Startup Window Settings" -string "Pro"
 
 
 ###############################################################################
@@ -292,47 +375,115 @@ hash tmutil &> /dev/null && sudo tmutil disablelocal
 # Messages                                                                    #
 ###############################################################################
 
-echo ""
-echo "Disable automatic emoji substitution (i.e. use plain text smileys)"
-defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "automaticEmojiSubstitutionEnablediMessage" -bool false
+# echo ""
+# echo "Disable automatic emoji substitution (i.e. use plain text smileys)"
+# defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "automaticEmojiSubstitutionEnablediMessage" -bool false
 
 echo ""
 echo "Disable smart quotes as itâ€™s annoying for messages that contain code"
 defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "automaticQuoteSubstitutionEnabled" -bool false
 
+# echo ""
+# echo "Disable continuous spell checking"
+# defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "continuousSpellCheckingEnabled" -bool false
+
+
+###############################################################################
+# Activity Monitor #
+###############################################################################
+
 echo ""
-echo "Disable continuous spell checking"
-defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "continuousSpellCheckingEnabled" -bool false
+echo "Show the main window when launching Activity Monitor"
+defaults write com.apple.ActivityMonitor OpenMainWindow -bool true
+
+echo ""
+echo "Visualize CPU usage in the Activity Monitor Dock icon"
+defaults write com.apple.ActivityMonitor IconType -int 5
+
+echo ""
+echo "Show all processes in Activity Monitor"
+defaults write com.apple.ActivityMonitor ShowCategory -int 0
+
+echo ""
+echo "Sort Activity Monitor results by CPU usage"
+defaults write com.apple.ActivityMonitor SortColumn -string "CPUUsage"
+defaults write com.apple.ActivityMonitor SortDirection -int 0
+
+
+###############################################################################
+# Address Book, Dashboard, iCal, TextEdit, and Disk Utility #
+###############################################################################
+
+echo ""
+echo "Use plain text mode for new TextEdit documents"
+defaults write com.apple.TextEdit RichText -int 0
+
+echo ""
+echo "Open and save files as UTF-8 in TextEdit"
+defaults write com.apple.TextEdit PlainTextEncoding -int 4
+defaults write com.apple.TextEdit PlainTextEncodingForWrite -int 4
+
+echo ""
+echo "Enable the debug menu in Disk Utility"
+defaults write com.apple.DiskUtility DUDebugMenuEnabled -bool true
+defaults write com.apple.DiskUtility advanced-image-options -bool true
+
+
+###############################################################################
+# SSD-specific tweaks
+###############################################################################
+
+# Disable local Time Machine snapshots
+# see Time Machine section
+
+# echo ""
+# echo "Disable hibernation (speeds up entering sleep mode)"
+# sudo pmset -a hibernatemode 0
+
+# echo ""
+# echo "Remove the sleep image file to save disk space"
+# sudo rm /Private/var/vm/sleepimage
+# echo "Creating a zero-byte file insteadâ€¦"
+# sudo touch /Private/var/vm/sleepimage
+# echo "â€¦and make sure it canâ€™t be rewritten"
+# sudo chflags uchg /Private/var/vm/sleepimage
+
+# echo ""
+# echo "Disable the sudden motion sensor as itâ€™s not useful for SSDs"
+# sudo pmset -a sms 0
+
+
+###############################################################################
+# Transmission.app #
+###############################################################################
+
+echo ""
+echo "Use `~/Documents/Torrents` to store incomplete downloads"
+defaults write org.m0k.transmission UseIncompleteDownloadFolder -bool true
+defaults write org.m0k.transmission IncompleteDownloadFolder -string "${HOME}/Documents/Torrents"
+
+echo ""
+echo "Don’t prompt for confirmation before downloading"
+defaults write org.m0k.transmission DownloadAsk -bool false
+
+echo ""
+echo "Trash original torrent files"
+defaults write org.m0k.transmission DeleteOriginalTorrent -bool true
+
 
 ###############################################################################
 # Personal Additions
 ###############################################################################
 
-echo ""
-echo "Disable hibernation (speeds up entering sleep mode)"
-sudo pmset -a hibernatemode 0
+# echo ""
+# echo "Speeding up wake from sleep to 24 hours from an hour"
+# # http://www.cultofmac.com/221392/quick-hack-speeds-up-retina-macbooks-wake-from-sleep-os-x-tips/
+# sudo pmset -a standbydelay 86400
 
-echo ""
-echo "Remove the sleep image file to save disk space"
-sudo rm /Private/var/vm/sleepimage
-echo "Creating a zero-byte file insteadâ€¦"
-sudo touch /Private/var/vm/sleepimage
-echo "â€¦and make sure it canâ€™t be rewritten"
-sudo chflags uchg /Private/var/vm/sleepimage
-
-echo ""
-echo "Disable the sudden motion sensor as itâ€™s not useful for SSDs"
-sudo pmset -a sms 0
-
-echo ""
-echo "Speeding up wake from sleep to 24 hours from an hour"
-# http://www.cultofmac.com/221392/quick-hack-speeds-up-retina-macbooks-wake-from-sleep-os-x-tips/
-sudo pmset -a standbydelay 86400
-
-echo ""
-echo "Disable computer sleep and stop the display from shutting off"
-sudo pmset -a sleep 0
-sudo pmset -a displaysleep 0
+# echo ""
+# echo "Disable computer sleep and stop the display from shutting off"
+# sudo pmset -a sleep 0
+# sudo pmset -a displaysleep 0
 
 echo ""
 echo "Disable annoying backswipe in Chrome"
