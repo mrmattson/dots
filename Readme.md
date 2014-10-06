@@ -4,12 +4,14 @@
 
 WIP bootstrapping library for osx & ubuntu (and maybe others!)
 
+Forked from [Matthew Mueller's](https://github.com/MatthewMueller/dots) most excellent work.
+
 ## Installation
 
 One-liner:
 
 ```
-(mkdir -p /tmp/dots && cd /tmp/dots && curl -L https://github.com/matthewmueller/dots/archive/master.tar.gz | tar zx --strip 1 && sh ./install.sh)
+(mkdir -p /tmp/dots && cd /tmp/dots && curl -L https://github.com/mrmattson/dots/archive/master.tar.gz | tar zx --strip 1 && sh ./install.sh)
 ```
 
 ## Design
@@ -56,6 +58,7 @@ The Ubuntu build does the following:
 
 # Credits
 
+* Original work by: [Matthew Mueller](https://github.com/MatthewMueller)
 * Logo by: [Piotrek Chuchla](http://www.thenounproject.com/pchuchla/)
 
 # License

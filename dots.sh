@@ -14,6 +14,8 @@ main() {
     case $1 in
       -v | --version )
         echo $version
+        echo "Version refers to Matthew Mueller's version, since I'm modifying his versions and"
+        echo "and want to know when he updates his and I haven't kept up."
         exit
         ;;
       -h | --help )
@@ -88,7 +90,7 @@ updatedots() {
   echo "updating dots..."
   mkdir -p /tmp/dots \
     && cd /tmp/dots \
-    && curl -L# https://github.com/matthewmueller/dots/archive/master.tar.gz | tar zx --strip 1 \
+    && curl -L# https://github.com/mrmattson/dots/archive/master.tar.gz | tar zx --strip 1 \
     && ./install.sh \
     && echo "updated dots to $(dots --version)."
   exit
