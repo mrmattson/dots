@@ -28,3 +28,19 @@ if [[ ! -e "$HOME/.bash_profile" ]]; then
 else
   echo "$HOME/.bash_profile already exists. remove and run again."
 fi
+
+# List next steps here as a checklist so I don't have to remember everytime
+echo ""
+echo "If new install, now go do the following:"
+echo "* System Preferences"
+echo "  * Turn on FileVault"
+echo "  * Check Firewall settings"
+echo "  * Set Sharing settings"
+echo "  * Add users"
+echo "* Setup Dropbox"
+echo "* Setup 1Password"
+echo "* Browser settings"
+echo "  * Set Safari preferences (no passwords)"
+echo "  * Set Firefox preferences (no passwords)"
+echo "  * Set Google Chrome preferences (no passwords)"
+echo "* Build Divvy shortcuts"
