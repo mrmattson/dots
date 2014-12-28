@@ -15,18 +15,22 @@ apps=(
   divvy
   growler
   pins
+  
   # Browsers
   firefox
   google-chrome
   aviator
+  
   # Communication
   # slack
   # mailbox
   # thunderbird
   skype
+  
   # Media
   vlc
   # spotify
+  
   # Storage & Management
   dropbox
   hazel
@@ -39,12 +43,14 @@ apps=(
   crashplan
   daisydisk
   gemini
+  
   # Quicklook
   qlcolorcode
   qlmarkdown
   # qlprettypatch
   qlstephen
   quicklook-json
+  
   # Text editors
   sublime-text
   # sublime-text3
@@ -52,17 +58,21 @@ apps=(
   nvalt
   textmate
   coda
+  
   # Design
   balsamiq-mockups
   # sketch
+  
   # Other Developer Tools
   virtualbox
   tower
   apikitchen
   codekit
   sketchup
+  mamp
   # screenflick
   # vagrant
+  
   # Just Plain Other
   ynab
   libreoffice
@@ -70,11 +80,11 @@ apps=(
   # shiori
   # flux
   # font-m-plus
+  
   # Other not yet in cask
   # 1password
   # folders-factory
   # hardware-growler
-  mamp
 )
 
 # fonts
