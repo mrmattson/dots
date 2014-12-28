@@ -14,8 +14,8 @@ main() {
     case $1 in
       -v | --version )
         echo $version
-        echo "Version refers to Matthew Mueller's version, since I'm modifying his versions and"
-        echo "and want to know when he updates his and I haven't kept up."
+        echo "Version refers to Matthew Mueller's version, since I'm modifying his versions"
+        echo "and want to know when he updates his and I haven't updated mine."
         exit
         ;;
       -h | --help )
