@@ -16,21 +16,21 @@ echo "This script will make your Mac awesome"
 # General UI/UX
 ###############################################################################
 
-echo ""
-echo "Hide the Time Machine, Volume, and User icons"
-for domain in ~/Library/Preferences/ByHost/com.apple.systemuiserver.*; do
-  defaults write "${domain}" dontAutoLoad -array \
-    "/System/Library/CoreServices/Menu Extras/TimeMachine.menu" \
-    "/System/Library/CoreServices/Menu Extras/Volume.menu" \
-    "/System/Library/CoreServices/Menu Extras/User.menu"
-done
-defaults write com.apple.systemuiserver menuExtras -array \
-  "/System/Library/CoreServices/Menu Extras/Bluetooth.menu" \
-  "/System/Library/CoreServices/Menu Extras/AirPort.menu" \
-  "/System/Library/CoreServices/Menu Extras/Battery.menu" \
-  "/System/Library/CoreServices/Menu Extras/Clock.menu"
-
-sudo chmod 600 /System/Library/CoreServices/Search.bundle/Contents/MacOS/Search
+# echo ""
+# echo "Hide the Time Machine, Volume, and User icons"
+# for domain in ~/Library/Preferences/ByHost/com.apple.systemuiserver.*; do
+#   defaults write "${domain}" dontAutoLoad -array \
+#     "/System/Library/CoreServices/Menu Extras/TimeMachine.menu" \
+#     "/System/Library/CoreServices/Menu Extras/Volume.menu" \
+#     "/System/Library/CoreServices/Menu Extras/User.menu"
+# done
+# defaults write com.apple.systemuiserver menuExtras -array \
+#   "/System/Library/CoreServices/Menu Extras/Bluetooth.menu" \
+#   "/System/Library/CoreServices/Menu Extras/AirPort.menu" \
+#   "/System/Library/CoreServices/Menu Extras/Battery.menu" \
+#   "/System/Library/CoreServices/Menu Extras/Clock.menu"
+#
+# sudo chmod 600 /System/Library/CoreServices/Search.bundle/Contents/MacOS/Search
 
 # echo ""
 # echo "Disabling OS X Gate Keeper"
@@ -239,7 +239,7 @@ Privileges -bool true
 ###############################################################################
 
 # Wipe all (default) app icons from the Dock
-# This is only really useful when setting up a new Mac, or if you donâ€™t use
+# This is only really useful when setting up a new Mac, or if you don't use
 # the Dock to launch apps.
 #defaults write com.apple.dock persistent-apps -array
 
@@ -293,27 +293,27 @@ defaults write com.apple.dock wvous-bl-modifier -int 0
 ###############################################################################
 
 echo ""
-echo "Hiding Safariâ€™s bookmarks bar by default"
+echo "Hiding Safari's bookmarks bar by default"
 defaults write com.apple.Safari ShowFavoritesBar -bool false
 
 echo ""
-echo "Hiding Safariâ€™s sidebar in Top Sites"
+echo "Hiding Safari's sidebar in Top Sites"
 defaults write com.apple.Safari ShowSidebarInTopSites -bool false
 
 echo ""
-echo "Disabling Safariâ€™s thumbnail cache for History and Top Sites"
+echo "Disabling Safari's thumbnail cache for History and Top Sites"
 defaults write com.apple.Safari DebugSnapshotsUpdatePolicy -int 2
 
 echo ""
-echo "Enabling Safariâ€™s debug menu"
+echo "Enabling Safari's debug menu"
 defaults write com.apple.Safari IncludeInternalDebugMenu -bool true
 
 echo ""
-echo "Making Safariâ€™s search banners default to Contains instead of Starts With"
+echo "Making Safari's search banners default to Contains instead of Starts With"
 defaults write com.apple.Safari FindOnPageMatchesWordStartsOnly -bool false
 
 echo ""
-echo "Removing useless icons from Safariâ€™s bookmarks bar"
+echo "Removing useless icons from Safari's bookmarks bar"
 defaults write com.apple.Safari ProxiesInBookmarksBar "()"
 
 echo ""
@@ -445,11 +445,11 @@ defaults write com.apple.DiskUtility advanced-image-options -bool true
 # sudo rm /Private/var/vm/sleepimage
 # echo "Creating a zero-byte file insteadâ€¦"
 # sudo touch /Private/var/vm/sleepimage
-# echo "â€¦and make sure it canâ€™t be rewritten"
+# echo "â€¦and make sure it can't be rewritten"
 # sudo chflags uchg /Private/var/vm/sleepimage
 
 # echo ""
-# echo "Disable the sudden motion sensor as itâ€™s not useful for SSDs"
+# echo "Disable the sudden motion sensor as it's not useful for SSDs"
 # sudo pmset -a sms 0
 
 
