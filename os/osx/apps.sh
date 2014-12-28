@@ -74,6 +74,7 @@ apps=(
   # 1password
   # folders-factory
   # hardware-growler
+  mamp
 )
 
 # fonts
