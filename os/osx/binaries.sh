@@ -40,6 +40,7 @@ binaries=(
   ack
   git
   hub
+  mackup
 )
 
 # Install the binaries
