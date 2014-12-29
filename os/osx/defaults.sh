@@ -39,9 +39,9 @@ echo "This script will make your Mac awesome"
 # sudo defaults write /var/db/SystemPolicy-prefs.plist enabled -string no
 # defaults write com.apple.LaunchServices LSQuarantine -bool false
 
-echo ""
-echo "Increasing the window resize speed for Cocoa applications"
-defaults write NSGlobalDomain NSWindowResizeTime -float 0.001
+# echo ""
+# echo "Increasing the window resize speed for Cocoa applications"
+# defaults write NSGlobalDomain NSWindowResizeTime -float 0.001
 
 echo ""
 echo "Expanding the save panel by default"
@@ -100,9 +100,9 @@ echo ""
 echo "Increasing sound quality for Bluetooth headphones/headsets"
 defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40
 
-echo ""
-echo "Enabling full keyboard access for all controls (e.g. enable Tab in modal dialogs)"
-defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
+# echo ""
+# echo "Enabling full keyboard access for all controls (e.g. enable Tab in modal dialogs)"
+# defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 
 echo ""
 echo "Disabling press-and-hold for keys in favor of a key repeat"
@@ -135,10 +135,10 @@ defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 # Screen
 ###############################################################################
 
-echo ""
-echo "Requiring password immediately after sleep or screen saver begins"
-defaults write com.apple.screensaver askForPassword -int 1
-defaults write com.apple.screensaver askForPasswordDelay -int 0
+# echo ""
+# echo "Requiring password immediately after sleep or screen saver begins"
+# defaults write com.apple.screensaver askForPassword -int 1
+# defaults write com.apple.screensaver askForPasswordDelay -int 0
 
 echo ""
 echo "Enabling subpixel font rendering on non-Apple LCDs"
@@ -168,9 +168,9 @@ echo ""
 echo "Allowing text selection in Quick Look/Preview in Finder by default"
 defaults write com.apple.finder QLEnableTextSelection -bool true
 
-echo ""
-echo "Displaying full POSIX path as Finder window title"
-defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
+# echo ""
+# echo "Displaying full POSIX path as Finder window title"
+# defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
 
 echo ""
 echo "Disabling the warning when changing a file extension"
@@ -222,9 +222,9 @@ echo "Increase the size of icons on the desktop and in other icon views"
 /usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:iconSize 80" ~/Library/Preferences/com.apple.finder.plist
 /usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:iconSize 80" ~/Library/Preferences/com.apple.finder.plist
 
-echo ""
-echo "Enable AirDrop over Ethernet and on unsupported Macs running Lion"
-defaults write com.apple.NetworkBrowser BrowseAllInterfaces -bool true
+# echo ""
+# echo "Enable AirDrop over Ethernet and on unsupported Macs running Lion"
+# defaults write com.apple.NetworkBrowser BrowseAllInterfaces -bool true
 
 echo ""
 echo "Expand the following File Info panes:"
@@ -304,9 +304,9 @@ echo ""
 echo "Disabling Safari's thumbnail cache for History and Top Sites"
 defaults write com.apple.Safari DebugSnapshotsUpdatePolicy -int 2
 
-echo ""
-echo "Enabling Safari's debug menu"
-defaults write com.apple.Safari IncludeInternalDebugMenu -bool true
+# echo ""
+# echo "Enabling Safari's debug menu"
+# defaults write com.apple.Safari IncludeInternalDebugMenu -bool true
 
 echo ""
 echo "Making Safari's search banners default to Contains instead of Starts With"
@@ -423,10 +423,10 @@ echo "Open and save files as UTF-8 in TextEdit"
 defaults write com.apple.TextEdit PlainTextEncoding -int 4
 defaults write com.apple.TextEdit PlainTextEncodingForWrite -int 4
 
-echo ""
-echo "Enable the debug menu in Disk Utility"
-defaults write com.apple.DiskUtility DUDebugMenuEnabled -bool true
-defaults write com.apple.DiskUtility advanced-image-options -bool true
+# echo ""
+# echo "Enable the debug menu in Disk Utility"
+# defaults write com.apple.DiskUtility DUDebugMenuEnabled -bool true
+# defaults write com.apple.DiskUtility advanced-image-options -bool true
 
 
 ###############################################################################
