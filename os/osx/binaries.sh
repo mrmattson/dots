@@ -26,20 +26,20 @@ brew install homebrew/dupes/grep
 
 # Install other useful binaries
 binaries=(
-  graphicsmagick
-  webkit2png
-  phantomjs
-  rename
-  zopfli
-  ffmpeg
+  # graphicsmagick
+  # webkit2png
+  # phantomjs
+  # rename
+  # zopfli
+  # ffmpeg
   python
-  mongo
-  sshfs
-  trash
-  tree
-  ack
-  git
-  hub
+  # mongo
+  # sshfs
+  # trash
+  # tree
+  # ack
+  # git
+  # hub
   mackup
 )
 
@@ -52,9 +52,9 @@ if test ! $(which subl); then
 fi
 
 # Install spot
-if test ! $(which spot); then
-  curl -L https://raw.github.com/guille/spot/master/spot.sh -o /usr/local/bin/spot && chmod +x /usr/local/bin/spot
-fi
+# if test ! $(which spot); then
+#   curl -L https://raw.github.com/guille/spot/master/spot.sh -o /usr/local/bin/spot && chmod +x /usr/local/bin/spot
+# fi
 
 # Remove outdated versions from the cellar
 brew cleanup

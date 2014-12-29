@@ -9,12 +9,12 @@ apps=(
   # Utilities
   alfred
   appcleaner
-  iterm2
+  # iterm2
   # seil
-  caffeine
+  # caffeine
   divvy
   growler
-  pins
+  # pins
   
   # Browsers
   firefox
@@ -36,7 +36,7 @@ apps=(
   hazel
   cloudup
   transmission
-  transporter-desktop
+  # transporter-desktop
   # transmit  
   # arq
   carbon-copy-cloner
@@ -52,24 +52,24 @@ apps=(
   quicklook-json
   
   # Text editors
-  sublime-text
+  # sublime-text
   # sublime-text3
   # atom
-  nvalt
+  # nvalt
   textmate
-  coda
+  # coda
   
   # Design
-  balsamiq-mockups
+  # balsamiq-mockups
   # sketch
   
   # Other Developer Tools
-  virtualbox
-  tower
-  apikitchen
-  codekit
+  # virtualbox
+  # tower
+  # apikitchen
+  # codekit
   sketchup
-  mamp
+  # mamp
   # screenflick
   # vagrant
   
